@@ -1,0 +1,51 @@
+.local-news {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+
+.news-item {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  backdrop-filter: blur(4px);
+  min-width: 0; /* Allows text to wrap properly in flexbox */
+  display: flex;
+  flex-direction: column;
+}
+
+.news-headline {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+  line-height: 1.2;
+  /* Ensure text doesn't overflow */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.news-source {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  margin-top: auto;
+}
+
+.news-loading {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+}

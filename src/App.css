@@ -1,38 +1,133 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+.top-row {
+  display: flex;
+  height: 20%;
+  width: 100%;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.top-panel {
+  width: calc(50% - 0.5rem);
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 1s ease-in-out, opacity 0.3s ease, z-index 0s;
+  background-color: #2a2a2a;
+  will-change: transform;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.slide.loading {
+  background-color: rgba(42, 42, 42, 0.8);
+}
+
+.slide.loading .slide-title {
+  opacity: 0.7;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.slide-title {
+  position: relative;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.slide-content {
+  position: relative;
+  flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 2;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.slide.active {
+  transform: translateY(0);
+  z-index: 3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slide.next {
+  transform: translateY(-100%);
+  z-index: 1;
 }
+
+.slide.previous {
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.calendar-panel {
+  height: 70%;
+  width: 100%;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+}
+
+.footer-panel {
+  width: 100%;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  border-radius: 0.25rem;
+}
+
+
