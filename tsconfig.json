@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "types": [
+      "node",
+      "jest",
+      "babel__core",
+      "babel__template",
+      "babel__generator",
+      "babel__traverse"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
